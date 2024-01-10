@@ -1,19 +1,15 @@
 #!/usr/bin/python3
-"""0x0B. Python - Input/Output, task 1. Number of lines """
+"""Defines a file-writing function."""
 
 
-def number_of_lines(filename=""):
-    """Returns the number of lines in a text file.
+def write_file(filename="", text=""):
+    """Write a string to a UTF8 text file.
 
     Args:
-        filename (str): name of file to be opened
-
+        filename (str): The name of the file to write.
+        text (str): The text to write to the file.
+    Returns:
+        The number of characters written.
     """
-    line_count = 0
-    with open(filename, encoding='utf-8') as file:
-        while True:
-            line = file.readline()
-            if not line:
-                break
-            line_count += 1
-    return line_count
+    with open(filename, "w", encoding="utf-8") as f:
+        return f.write(text)
